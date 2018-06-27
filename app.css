@@ -1,0 +1,12 @@
+.cell {
+    height: 15px;
+    width: 15px;
+}
+
+.alive {
+    background: lightgreen !important;
+}
+
+.dead {
+    background: lightgrey !important;
+}

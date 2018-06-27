@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./app.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="./app.module.js"></script>
+<script src="./app.controller.js"></script>
+
+<body ng-app="gameApp">
+    <div ng-controller="GameController as ctrl">
+        <nav>
+            <h4>Conway's Game of Life - Vivid Seats Code Challenge</h4>
+            <div>
+                <input type="button" value="Start" ng-click="ctrl.start()" />
+                <input type="button" value="Start interesting sample" ng-click="ctrl.startInterestingSample()" />
+                <input type="button" value="Stop" ng-click="ctrl.stop()" />
+                <span>Steps: {{ ctrl.getSteps() }}</span>
+            </div>
+        </nav>
+        <section>
+            <table ng-init="ctrl.init()">
+                <tr ng-repeat="cellRow in ctrl.getCells()">
+                    <td ng-repeat="cell in cellRow">
+                        <div class="cell" ng-class="cell.isAlive ? 'alive' : 'dead'" title="{{cell.cellId}}"></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>
